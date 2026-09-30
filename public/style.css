@@ -1,0 +1,229 @@
+:root {
+  --bg-color: #0b0e14;
+  --card-bg: #151b26;
+  --text-main: #ffffff;
+  --text-muted: #8b9bb4;
+  
+  /* Herzfrequenz-Zonen */
+  --zone-1: #64748b; /* < 60%  (Grau) */
+  --zone-2: #0284c7; /* 60-69% (Blau) */
+  --zone-3: #16a34a; /* 70-79% (Grün) */
+  --zone-4: #f97316; /* 80-89% (Orange - ZONE 4 MAXXING) */
+  --zone-5: #ef4444; /* 90%+   (Rot - Max Effort) */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Header */
+.topbar {
+  background-color: #111622;
+  border-bottom: 2px solid #232d3f;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: var(--zone-4);
+  text-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #334155;
+}
+
+.badge.live { background: #15803d; }
+.badge.sim { background: #b45309; }
+
+.stats-summary {
+  display: flex;
+  gap: 32px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.stat-value.highlight {
+  color: var(--zone-4);
+}
+
+.btn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Kachel Grid */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/* Einzelne Kachel */
+.athlete-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 2px solid #1f2937;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.athlete-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 170px;
+}
+
+.zone-indicator {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.card-body {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.bpm-number {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.bpm-unit {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.card-footer {
+  margin-top: 8px;
+}
+
+.percentage-bar-bg {
+  background: #232d3f;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.percentage-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--zone-1);
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.percentage-text {
+  text-align: right;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Zone 4 Highlighting (Der Star des Kurses) */
+.athlete-card.z4 {
+  border-color: var(--zone-4);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.45);
+}
+
+.athlete-card.z4 .zone-indicator {
+  background: rgba(249, 115, 22, 0.2);
+  color: var(--zone-4);
+}
+
+.athlete-card.z4 .percentage-bar-fill {
+  background: var(--zone-4);
+}
+
+/* Zone 5 (Max Effort) */
+.athlete-card.z5 {
+  border-color: var(--zone-5);
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.55);
+}
+
+.athlete-card.z5 .zone-indicator {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--zone-5);
+}
+
+.athlete-card.z5 .percentage-bar-fill {
+  background: var(--zone-5);
+}

@@ -1,0 +1,10 @@
+# Node-Module (werden niemals mit ins Repo geladen)
+node_modules/
+npm-debug.log*
+
+# Konfigurationsdatei mit echten Teilnehmerdaten ignorieren
+config.json
+
+# Betriebssystem-Dateien
+.DS_Store
+Thumbs.db

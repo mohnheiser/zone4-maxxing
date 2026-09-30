@@ -1,0 +1,6 @@
+{
+  "defaultMaxHr": 195,
+  "participants": {
+    "12345": { "name": "Ryan Stecken", "maxHr": 190 }
+  }
+}

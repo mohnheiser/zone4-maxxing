@@ -1,0 +1,15 @@
+{
+  "name": "zone4-maxxing",
+  "version": "1.0.0",
+  "description": "Live ANT+ Heart Rate Dashboard for Zone 4 maxxing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "sim": "node server.js --sim"
+  },
+  "dependencies": {
+    "ant-plus-next": "^0.4.0",
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}
