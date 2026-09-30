@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #0b0e14;
+  --bg-color: #140b0b;
   --card-bg: #151b26;
   --text-main: #ffffff;
   --text-muted: #8b9bb4;
@@ -7,7 +7,7 @@
   /* Herzfrequenz-Zonen */
   --zone-1: #64748b; /* < 60%  (Grau) */
   --zone-2: #0284c7; /* 60-69% (Blau) */
-  --zone-3: #16a34a; /* 70-79% (Grün) */
+  --zone-3: #f7eb48; /* 70-79% (Gelb) */
   --zone-4: #f97316; /* 80-89% (Orange - ZONE 4 MAXXING) */
   --zone-5: #ef4444; /* 90%+   (Rot - Max Effort) */
 }
@@ -30,7 +30,7 @@ body {
 
 /* Header */
 .topbar {
-  background-color: #111622;
+  background-color: #140b0b;
   border-bottom: 2px solid #232d3f;
   padding: 12px 24px;
   display: flex;
